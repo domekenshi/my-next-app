@@ -1,0 +1,35 @@
+/* Swiperの親をrelativeに */
+.swiper {
+  position: relative;
+  width: 100%;
+  height: 300px; /* 適宜 */
+}
+
+/* 画像は幅いっぱいに */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* プログレスバー本体 */
+.custom-pagination {
+  position: absolute;
+  bottom: 10px; /* 画像の下から10px上に配置 */
+  left: 10px; /* 左から10px */
+  right: 10px; /* 右も10px余白 */
+  height: 5px; /* バーの高さ */
+  background: rgba(255, 255, 255, 0.3); /* 背景（バーの外枠） */
+  border-radius: 3px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* プログレスバーの進捗部分 */
+.custom-pagination .swiper-pagination-progressbar-fill {
+  background: #007aff; /* プログレスバーの色 */
+  height: 100%;
+  width: 0;
+  transition: width 0.3s;
+  border-radius: 3px;
+}
