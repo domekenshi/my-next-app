@@ -1,5 +1,11 @@
+import PaginationTestScreen from "./PaginationTestScreen";
+
 const TestScreen = () => {
-  return <></>;
+  return (
+    <>
+      <PaginationTestScreen />
+    </>
+  );
 };
 
 export default TestScreen;
