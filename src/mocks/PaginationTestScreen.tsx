@@ -5,7 +5,7 @@ import { useState } from "react";
 const PaginationTestScreen = ({
   // 長さ５０、表示「アイテムX」の空配列　テスト用のダミーデータ
   items = Array.from({ length: 50 }, (_, i) => `アイテム ${i + 1}`),
-  perPage = 10,
+  perPage = 5,
 }) => {
   // 1ページに表示するアイテムの数
   const itemsPerPage = perPage;
@@ -33,7 +33,6 @@ const PaginationTestScreen = ({
         <Pagination
           totalItems={Number(items.length)}
           itemsPerPage={itemsPerPage}
-          currentPage={currentPage}
           onPageChange={setCurrentPage}
         />
       </div>
