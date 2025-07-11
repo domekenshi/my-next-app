@@ -1,8 +1,8 @@
-import TestScreen from "@/mocks/TestScreen";
+import TestScreen from "@/mocks/pages/TestScreen";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex w-full justify-center items-center min-h-screen">
       <TestScreen />
     </div>
   );
