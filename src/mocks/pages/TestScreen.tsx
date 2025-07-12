@@ -4,7 +4,7 @@ import PaginationTestScreen from "../PaginationTestScreen";
 const TestScreen = () => {
   return (
     <>
-      <Event />
+      {/* <Event /> */}
       {/* <PaginationTestScreen /> */}
     </>
   );
