@@ -24,3 +24,4 @@ const yoga = createYoga({
 });
 // Next.js App Router の route.ts では GET/POSTメソッドを export する必要がある　GraphQL API として動作
 export { yoga as GET, yoga as POST };
+// http://localhost:3000/api/graphql
