@@ -66,7 +66,54 @@ function getCurrentDateWithTimezone(timezone = "Asia/Tokyo") {
     day: "2-digit",
   }).format(now);
 }
+//////////////////////////////////////////
+// 曜日を取得する関数
+//////////////////////////////////////////
+// 7. 曜日を取得する関数（日本語）
+function getCurrentDayOfWeek() {
+  const now = new Date();
+  const days = ["日", "月", "火", "水", "木", "金", "土"];
+  return days[now.getDay()];
+}
 
+// 8. 曜日を取得する関数（英語）
+function getCurrentDayOfWeekEn() {
+  const now = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[now.getDay()];
+}
+
+// 9. 曜日を取得する関数（英語短縮形）
+function getCurrentDayOfWeekShort() {
+  const now = new Date();
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[now.getDay()];
+}
+
+// 10. 日付と曜日をまとめて取得
+function getCurrentDateWithDayOfWeek() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const dayOfWeek = getCurrentDayOfWeek();
+  return `${year}-${month}-${day} (${dayOfWeek})`;
+}
+
+// 11. 指定した日付の曜日を取得
+function getDayOfWeek(dateString: string) {
+  const date = new Date(dateString);
+  const days = ["日", "月", "火", "水", "木", "金", "土"];
+  return days[date.getDay()];
+}
 export const execGetCurrentDateLog = () => {
   // 使用例
   console.log("基本的な日付オブジェクト:", getCurrentDate());
@@ -78,4 +125,9 @@ export const execGetCurrentDateLog = () => {
     getCurrentDateFormatted("YYYY年MM月DD日 HH:mm:ss")
   );
   console.log("タイムゾーン指定:", getCurrentDateWithTimezone());
+  console.log("曜日（日本語）:", getCurrentDayOfWeek());
+  console.log("曜日（英語）:", getCurrentDayOfWeekEn());
+  console.log("曜日（英語短縮）:", getCurrentDayOfWeekShort());
+  console.log("日付+曜日:", getCurrentDateWithDayOfWeek());
+  console.log("指定日付の曜日:", getDayOfWeek("2024-12-25")); // クリスマスの曜日
 };
