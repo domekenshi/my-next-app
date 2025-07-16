@@ -62,5 +62,13 @@ const yoga = createYoga({
   fetchAPI: { Request, Response }, // これがないと Next.js の route.ts の中で動かせない
 });
 // Next.js App Router の route.ts では GET/POSTメソッドを export する必要がある　GraphQL API として動作
-export { yoga as GET, yoga as POST };
+// ❗ GET/POST は Request を引数に受け取る関数として書く
+// Next.js の App Router では `context` を第2引数で受け取る！
+export async function GET(request: Request, context: any) {
+  return yoga.handleRequest(request, context);
+}
+
+export async function POST(request: Request, context: any) {
+  return yoga.handleRequest(request, context);
+}
 // http://localhost:3000/api/graphql
