@@ -8,7 +8,7 @@ const DebugScreen = () => {
     <>
       <TestScreen />
       {/* パララックス */}
-      <ParallaxApp />
+      {/* <ParallaxApp /> */}
     </>
   );
 };
