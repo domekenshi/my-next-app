@@ -42,4 +42,41 @@ body {
   .paused {
     animation-play-state: paused;
   }
+  .scrollbar-custom {
+    /* Firefox 用 */
+    scrollbar-width: thin; /* thin / auto / none */
+    scrollbar-color: rgba(202, 69, 69, 0.3) transparent; /* thumb / track */
+    margin-right: 18px; /* 内側に余白 */
+  }
+  /* Scrollbarの幅や色 */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px; /* 横幅 */
+    max-height: 8px; /* 縦幅 */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: rgb(150, 45, 45); /* 見えるバー */
+    border-radius: 9999px; /* 完全丸め */
+    border: 2px solid transparent; /* パディング分の透明枠 */
+    background-clip: content-box; /* 透明枠を反映 */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: transparent; /* 背景を透明に */
+  }
+  /* スクロールボタン非表示 */
+  .scrollbar-custom::-webkit-scrollbar-button {
+    display: none;
+  }
+  .scrollbar-custom::-webkit-scrollbar-button:single-button {
+    display: none; /* 上下ボタンを消す */
+  }
+  .scrollbar-custom::-webkit-scrollbar-button:vertical:start,
+  .scrollbar-custom::-webkit-scrollbar-button:vertical:end {
+    display: none;
+  }
+  .scrollbar-custom::-webkit-scrollbar-button:horizontal:start,
+  .scrollbar-custom::-webkit-scrollbar-button:horizontal:end {
+    display: none;
+  }
 }

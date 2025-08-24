@@ -4,6 +4,7 @@ import Event from "../Event/Event";
 import PaginationTestScreen from "../PaginationTestScreen";
 import DropTest from "./DropTest";
 import Marquee from "@/feat/animation/Marquee";
+import DialogMock from "@/feat/headlessui/DialogMock";
 
 const TestScreen = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -16,7 +17,10 @@ const TestScreen = () => {
       <div className="h-dvh bg-blue-900">この要素は表示領域の高さぴったり</div>
 
       {/* 無限ループアニメーション */}
-      <Marquee />
+      {/* <Marquee /> */}
+
+      {/* ダイアログ */}
+      <DialogMock />
 
       <div className="h-dvh bg-blue-900">この要素は表示領域の高さぴったり</div>
 
