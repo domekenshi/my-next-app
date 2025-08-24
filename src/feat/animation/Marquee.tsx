@@ -5,16 +5,16 @@ const Marquee = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className="bg-gray-700 flex w-full h-dvh">
+    <div className="bg-gray-700 flex w-full">
       {/* 無限ループアニメーション */}
-      <div className="relative w-full overflow-hidden bg-black text-white whitespace-nowrap">
+      <div className="relative w-full overflow-hidden text-white whitespace-nowrap">
         <div
           className={`inline-flex ${
             isPaused ? "paused" : ""
           } animate-marquee-loop`}
         >
           <span className="px-4">
-            このテキストはテストです。このテキストはテストです。このテキストはテストです。
+            このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。このテキストはテストです。
           </span>
           <span className="px-4">
             このテキストはテストです。このテキストはテストです。このテキストはテストです。
