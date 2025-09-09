@@ -111,3 +111,41 @@
 //     return "past";
 //   }
 // }
+
+function deepEqual(obj1: any, obj2: any): boolean {
+  // 型が違えば false
+  if (typeof obj1 !== typeof obj2) return false;
+
+  // null の判定
+  if (obj1 === null || obj2 === null) return obj1 === obj2;
+
+  // プリミティブ型の判定
+  if (typeof obj1 !== "object") return obj1 === obj2;
+
+  // 配列の場合（順序を考慮）
+  if (Array.isArray(obj1) && Array.isArray(obj2)) {
+    if (obj1.length !== obj2.length) return false;
+    return obj1.every((val, i) => deepEqual(val, obj2[i]));
+  }
+
+  // 片方だけ配列の場合は false
+  if (Array.isArray(obj1) || Array.isArray(obj2)) return false;
+
+  // オブジェクトの場合（順序は無視）
+  const keys1 = Object.keys(obj1).sort();
+  const keys2 = Object.keys(obj2).sort();
+
+  if (keys1.length !== keys2.length) return false;
+
+  return keys1.every(
+    (key, i) => key === keys2[i] && deepEqual(obj1[key], obj2[key])
+  );
+}
+
+// --- 使用例 ---
+const a = { name: "mike", age: 30, tags: ["dev", "it"] };
+const b = { age: 30, tags: ["dev", "it"], name: "mike" }; // 順序違い
+const c = { name: "mike", age: 30, tags: ["it", "dev"] }; // 配列順序違い
+
+console.log(deepEqual(a, b)); // true（オブジェクトは順序無視）
+console.log(deepEqual(a, c)); // false（配列は順序も考慮）
