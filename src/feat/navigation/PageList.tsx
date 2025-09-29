@@ -7,6 +7,7 @@ const PageList = () => {
       <Link href={"/design/tailwind"}>TailwindCSS</Link>
       <Link href={"/debug"}>Debug</Link>
       <Link href={"/headlessui"}>headlessui</Link>
+      <Link href={"/surveyjs"}>surveyJs</Link>
     </div>
   );
 };

@@ -1,0 +1,40 @@
+npm install survey-core survey-react-ui
+
+survey-core: アンケートのロジックやモデル部分
+
+survey-react-ui: React 用 UI コンポーネント
+
+
+Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+サーバーサイドで生成された HTML と、クライアントで React が再描画した HTML が一致しないときに出ます。
+SurveyJS は クライアント側で初期化時に DOM をちょっと書き換えるので、SSR と噛み合わなくなりやすい
+✅ 解決策
+1. SurveyJS を クライアントコンポーネントで使う
+
+Next.js 13 以降ならコンポーネントの先頭に
+
+"use client";
+
+
+をつけてください。
+→ これで SSR されず、クライアント専用レンダリングになります。
+
+2. 動的インポート（SSRオフ）
+
+next/dynamic を使って SurveyJS を動的に読み込むと安全です。
+
+import dynamic from "next/dynamic";
+
+const SurveyComponent = dynamic(() => import("./SurveyComponent"), {
+  ssr: false,
+});
+
+
+こうすれば SurveyJS はサーバー側で描画されず、Hydration mismatch が起きません。
+
+
+
+
+Error: Element type is invalid. Received a promise that resolves to: [object Module].
+Lazy element type must resolve to a class or function.
+default export をちゃんと返していない or import の書き方が間違っている可能性

@@ -19,6 +19,8 @@
     "prisma": "^6.11.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "survey-core": "^2.3.8",
+    "survey-react-ui": "^2.3.8",
     "swiper": "^11.2.10"
   },
   "devDependencies": {
